@@ -6,6 +6,9 @@
 ### Part 2: Designing sound - Bouncing Ball
 [insert url]
 
+**Audio Signal Flow Graph:**
+![image](https://github.com/lkc2140/farnell-synthesis/assets/123655927/a5fb31e0-a2d6-4340-8d97-c8edcb7e9e88)
+
 **Code Walkthrough:**
 I aimed to recreate the sound of bouncing, inspired by "Pratical 7: Bouncing" in Farnell's *Designing Sound Part IV*.
 Below, is an explanantion of a simplified (more generalized) version of my code.
@@ -20,9 +23,9 @@ First, I initialized a sine wave oscillator. The important attributes here are:
 ```
 sig = audioCtx.createOscillator();
 sig.type = 'sine';   
-sig.frequency.value = 200.; 
-bouncePeriod = 0.6;
-decayTime = 0.5;
+sig.frequency.value = 120.; 
+bouncePeriod = 0.3;
+decayTime = 0.2;
 attackTime = 0.001;
 
 gainNode = audioCtx.createGain();
@@ -32,7 +35,6 @@ amp = 0.7;
 Next, I implemented frequency modulation. The carrier frequency will eventually be added to the original signal to simulate the "thud" of the bounce (Farnell, 385). I found (after experimenting a bit) that a higher modulation index tends to make the bouncing sound more elastic or "springy".
 ```
 modFrequency = audioCtx.createOscillator();
-modFrequency.frequency.value = 130
 carrierFrequency = audioCtx.createOscillator();
 var modIndex = audioCtx.createGain();
 modIndex.gain.value = 100;
@@ -67,7 +69,7 @@ I then adjust decay time, bounce period, and amplitude. On later bounces, these 
     bouncePeriod = bouncePeriod * decayFactor
     amp = amp * ampDecayFactor
 ```
-After the completion of one bounce, I call bounce() again, with a separation time equivalent to the bounce period. I end the cycle after 5 decays - this was just an experimental choice. 
+After the completion of one bounce, I call ```bounce()``` again, with a separation time equivalent to the bounce period. I end the cycle after 5 decays - this was just an experimental choice. 
 ```
     // Start next bounce (as long as there have been only  less than 5 "decays")
     if (numDecays < 5) {
