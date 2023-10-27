@@ -4,7 +4,7 @@
 [Babbling Brook](https://lkc2140.github.io/farnell-synthesis/babbling_brook.html)
 
 ### Part 2: Designing sound - Bouncing Ball
-[insert url]
+[Bouncing](https://lkc2140.github.io/farnell-synthesis/bounce.html)
 
 **Audio Signal Flow Graph:**
 ![image](https://github.com/lkc2140/farnell-synthesis/assets/123655927/a5fb31e0-a2d6-4340-8d97-c8edcb7e9e88)
