@@ -1,7 +1,7 @@
 # Farnell Synthesis
 
 ### Part 1: Recreating Babbling Brook
-[insert url]
+[Babbling Brook](https://lkc2140.github.io/farnell-synthesis/babbling_brook.html)
 
 ### Part 2: Designing sound - Bouncing Ball
 [insert url]
